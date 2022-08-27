@@ -1,0 +1,60 @@
+<div class="container">
+
+    <div class="container-video" #idContainerVideo>
+        
+        <video oncanplay="this.play()" onloadedmetadata="this.muted = true" loop muted autoplay> 
+
+            <source  src="assets/videos/new.mp4" type="video/mp4" autoplay="autoplay" loop muted allow="autoplay">
+
+        </video>
+
+    </div>
+
+    <div class="container-title">
+        <h1> ChaTS</h1>
+    </div>
+
+    <div class="container-icon-menu">
+
+        <i class="bx bx-menu menu-icon active" (click)="toggle()"></i>
+        <i class="bx bx-x menu-icon" (click)="toggle()"></i>
+
+    </div>
+
+    <div class="container-options-menu" #idContainerMenu> 
+        
+        <div class="container-all-list">
+
+            <div class="container-title">
+                <a href="/"> ChaTS</a>
+            </div>
+            
+            <ul class="container-list">
+
+                <li> <i class="bx bx-log-in-circle"></i> <a href="#"  [routerLink]="['/auth/login']" (mouseover)="addActive(0)" (mouseout)="removeActive()"> SIGN IN</a> </li>
+                <li> <i class="bx bx-user-plus"></i>  <a href="#" [routerLink]="['/auth/signUp']" (mouseover)="addActive(1)" (mouseout)="removeActive()">  SIGN UP</a></li>
+
+            </ul>
+
+            <ul class="container-social-media">
+
+                <li> <i class="bx bxl-facebook-circle"></i> <a href="#" (mouseover)="addActive(2)" (mouseout)="removeActive()">FACEBOOK</a></li>
+                <li> <i class="bx bxl-twitter"></i> <a href="#" (mouseover)="addActive(3)" (mouseout)="removeActive()">TWITTER</a></li>
+                <li> <i class="bx bxl-instagram"></i> <a href="#" (mouseover)="addActive(4)" (mouseout)="removeActive()">INSTAGRAM</a></li>
+                <li> <i class="bx bxl-github"></i> <a href="#" (mouseover)="addActive(5)" (mouseout)="removeActive()">GITHUB</a></li>    
+
+            </ul>
+
+        </div>
+
+        <div class="container-images">
+
+            <div class="bg-img" #idContainerImg>
+                <img src="" alt="" #idImg>
+            </div>
+
+        </div>
+        
+    </div>
+    
+</div>

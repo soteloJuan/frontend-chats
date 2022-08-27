@@ -1,0 +1,21 @@
+<div class="content" #idContentMain>
+
+    <div class="burger">
+        <i [ngClass]="{'bx-menu': banderaSidebar, 'bx-x': !banderaSidebar}" class="bx burger__icon" (click)="clickSidebar()"></i>
+    </div>
+    
+    <div class="navbar" [ngClass]="{'ocular': banderaSidebar }">
+
+        <app-sidebar></app-sidebar>
+
+    </div>
+
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="content-image-background">
+        <img [src]="backgroundMainService.imageBackground | notBackground" alt="">
+    </div>
+
+</div>

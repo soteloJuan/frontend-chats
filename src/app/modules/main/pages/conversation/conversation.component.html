@@ -1,0 +1,93 @@
+
+<div class="content">
+
+    <div class="content-body" *ngIf="friend">
+
+        <div class="content-head">
+
+            <div class="image-profile">
+                <img [src]="friend.urlImage | notImage" alt="" (click)="showPopUpImage(friend.urlImage)">
+            </div>
+
+            <div class="userName">
+                <p (click)="showProfileFriend(friend.idUser)">
+                    {{friend.userName}}
+                </p>
+            </div>
+
+            <div class="options" (click)="showOptions()">
+                <i class='bx bx-menu-alt-right' id="idIcon"></i>
+                <ul id="idListOptions">
+                    <li> <a (click)="showProfileFriend(friend.idUser)"> Profile Friend</a> </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="content-messages">
+
+            <div class="content-more" *ngIf="showButtonMoreSee">
+                <p (click)="getLastTenMessageByIdConversation(idConversation, page + 1)">
+                    see more
+                </p>
+            </div>
+
+            <div *ngFor="let message of arrayMessages">
+
+                <div class="bubble-container left" *ngIf="message.idUser === friend.idUser">
+
+                    <div class="bubble">
+                        <div class="bubble-text">
+                            <div>
+                                <span>{{message.body}}</span>
+                                <div *ngIf="dateNow > message.timeDays" class="bubble-info">{{message.timeDays}}</div>
+                                <div *ngIf="dateNow === message.timeDays" class="bubble-info">{{message.timeHour}}</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+    
+                <div class="bubble-container right" *ngIf="message.idUser === user.idUser">
+    
+                    <div class="bubble">
+                        <div class="bubble-text">
+                            <div>
+                                <span>{{message.body}}</span>
+                                <div *ngIf="dateNow > message.timeDays" class="bubble-info">{{message.timeDays}}</div>
+                                <div *ngIf="dateNow === message.timeDays" class="bubble-info">{{message.timeHour}}</div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+
+            </div>
+
+            <div class="containt-not-messages" *ngIf="arrayMessages.length === 0">
+                <p>
+                    No Messages
+                </p>
+            </div>
+
+        </div>
+
+        <div class="content-write">
+            
+            <div class="input">
+                <input type="text" placeholder="your message should go here"  (keydown.enter)="sendMessage(inputSendMessage.value)" #inputSendMessage>
+            </div>
+
+            <div class="button-send">
+                <i class='bx bxs-send' (click)="sendMessage(inputSendMessage.value)"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-pop-up-image *ngIf="canShowPopUpImage" class="popup-image" [urlImage]="urlImageSendPopUpImage" (closePopUp)="showPopUpImage()"></app-pop-up-image>
+    <app-profile-friend *ngIf="canShowPopUpProfileFriend" class="profileFriend" [idFriend]="idFriendSendPopUpProfile" [isFriend]="false" [canShowButtonSendMessage]="false" (closePopUp)="showProfileFriend()"></app-profile-friend>
+
+</div>

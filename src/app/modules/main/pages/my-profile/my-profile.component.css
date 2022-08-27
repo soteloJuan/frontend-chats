@@ -1,0 +1,741 @@
+.content-myProfile{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.content-body{
+    position: relative;
+    width:70%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4); 
+    border-radius: 20px;
+
+    z-index: 1;
+}
+
+/* START  popup image */
+
+.popup-image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 15;
+}
+/* END  popup image */
+
+
+/* START CONTENT IMAGE */
+
+.content-image{
+    width: 100%;
+    height: 30%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-image .img{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-image .img img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.content-image .buttons-image{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-image .buttons-image button{
+    border-radius: 20px;
+    background: #ffffff;
+    color: #000;
+    border: 1px solid var(--color-white-border);
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    padding: 15px 25px;
+    margin: 0 20px ;
+}
+
+.content-image .buttons-image button:hover{
+    background: black;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    -webkit-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    -moz-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+}
+
+/* END CONTENT IMAGE */
+
+
+/* START CONTENT TEXT */
+
+.content-text{
+    width: 100%;
+    height: 70%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-text .information{
+    width: 100%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.content-text .information p .label{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 5px 15px;
+    border-radius: 20px;
+
+    background: black;
+    color: white;
+}
+
+.content-text .information p span{
+    font-size: 30px;
+    font-weight: 800;
+    color: black;
+}
+
+.content-text .information p:first-child span:nth-child(2){
+    text-transform: uppercase;
+}
+
+
+
+
+.content-text .buttons-text{
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.content-text .buttons-text button{
+    background: #ffffff;
+    color: #000;
+    border: 1px solid var(--color-white-border);
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    padding: 15px 25px;
+    margin: 0 20px ;
+}
+
+.content-text .buttons-text button:hover{
+    background: black;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    -webkit-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    -moz-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+}
+
+/* END CONTENT TEXT */
+
+
+/* START UPDATE BASIC INFORMATION */
+
+.content-update-basic{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+    transform: translateY(-100%);
+
+    transition: all 0.5s ease-in-out;
+}
+
+.content-update-basic.show{
+    transform: translateY(0);
+}
+
+.content-image-background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.content-image-background img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-update-basic .content-body{
+    z-index: 10;
+    width: 30%;
+    height: 90%;
+}
+
+.content-update-basic .content-body .content-title{
+    width: 100%;
+    height: 15%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: red; */
+}
+
+.content-update-basic .content-body .content-title p{
+    background: black;
+    color: white;
+    padding: 15px 25px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+
+.content-update-basic .content-body .content-form{
+    width: 100%;
+    height: 85%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-update-basic .content-body .content-form form{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.content-update-basic .content-body .content-form form .content-input{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-update-basic .content-body .content-form form input,
+.content-update-basic .content-body .content-form form textarea{
+    width: 80%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.500);
+    border: none;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+}
+
+.content-update-basic .content-body .content-form form input::placeholder,
+.content-update-basic .content-body .content-form form textarea::placeholder{
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.content-update-basic .content-body .content-form form input:focus,
+.content-update-basic .content-body .content-form form textarea:focus{
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.300);
+    color: black;
+}
+
+.content-update-basic .content-body .content-form form .content-input .span-error{
+    position: absolute;
+    bottom: -10px;
+    left: 150px;
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--color-danger);
+}
+
+.content-update-basic .content-body .content-form form .content-input .span-success{
+    position: absolute;
+    bottom: 35px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--color-success);
+}
+
+.content-update-basic .content-body .content-form form .form-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-update-basic .content-body .content-form form .form-buttons button{
+    width: 200px;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--color-white-border);
+    border-radius: 20px;
+    color: var(--color-white-1);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    
+    margin: 10px;
+}
+
+.content-update-basic .content-body .content-form form .form-buttons button:hover{
+    background: var(--color-white-1);
+    color: var(--color-black);
+    font-size: 22px;
+    font-weight: 700;
+
+    -webkit-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    -moz-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+}
+
+/* END UPDATE BASIC INFORMATION */
+
+/* START UPDATE PASSWORD */
+
+.content-update-password{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+    transform: translateY(-100%);
+
+    transition: all 0.5s ease-in-out;
+}
+
+.content-update-password.show{
+    transform: translateY(0);
+}
+
+.content-update-password .content-body{
+    z-index: 10;
+    width: 30%;
+    height: 50%;
+}
+
+.content-update-password .content-body .content-title{
+    width: 100%;
+    height: 25%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-update-password .content-body .content-title p{
+    background: black;
+    color: white;
+    padding: 15px 25px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+
+.content-update-password .content-body .content-form{
+    width: 100%;
+    height: 75%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-update-password .content-body .content-form form{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.content-update-password .content-body .content-form form .content-input{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-update-password .content-body .content-form form input
+{
+    width: 80%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.500);
+    border: none;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+}
+
+.content-update-password .content-body .content-form form input::placeholder
+{
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.content-update-password .content-body .content-form form input:focus
+{
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.300);
+    color: black;
+}
+
+.content-update-password .content-body .content-form form .content-input .span-error{
+    position: absolute;
+    bottom: -10px;
+    left: 44px;
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--color-danger);
+}
+
+.content-update-password .content-body .content-form form .content-input .span-success{
+    position: absolute;
+    bottom: 35px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--color-success);
+}
+
+.content-update-password .content-body .content-form form .form-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-update-password .content-body .content-form form .form-buttons button{
+    width: 200px;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--color-white-border);
+    border-radius: 20px;
+    color: var(--color-white-1);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    
+    margin: 10px;
+}
+
+.content-update-password .content-body .content-form form .form-buttons button:hover{
+    background: var(--color-white-1);
+    color: var(--color-black);
+    font-size: 22px;
+    font-weight: 700;
+
+    -webkit-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    -moz-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+}
+
+
+/* END UPDATE PASSWORD */
+
+
+@media screen and (max-width: 1450px){
+    
+    .content-update-password .content-body{
+        min-width: 450px;
+    }
+    
+}
+
+@media screen and (max-width: 1400px){
+    
+    .content-update-basic .content-body {
+        min-width: 450px;
+    }
+
+}
+
+@media screen and (max-width: 700px){
+
+    .content-body{
+        width:95%;
+        height: 95%;
+    }
+
+    .content-image .img img{
+        width: 120px;
+        height: 120px;
+    }
+    
+    .content-image .buttons-image button{
+        font-size: 13px;
+        padding: 10px 20px;
+        margin: 0 10px ;
+    }
+    
+    .content-image .buttons-image button:hover{
+        font-size: 15px;
+    }
+
+    .content-text .information p .label{
+        font-size: 17px;
+        padding: 5px 15px;
+    }
+    
+    .content-text .information p span{
+        font-size: 25px;
+        font-weight: 800;
+    }
+    
+    .content-text .buttons-text button{
+        font-size: 13px;
+        padding: 10px 20px;
+        margin: 0 10px ;
+    }
+
+    .content-text .buttons-text button:hover{
+        font-size: 15px;
+    }
+    
+}
+
+@media screen and (max-width: 600px){
+
+    .content-image .img img{
+        width: 100px;
+        height: 100px;
+    }
+    
+    .content-text .information p .label{
+        font-size: 15px;
+        padding: 2px 10px;
+    }
+    
+    .content-text .information p span{
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+
+    .content-image .img{
+        width: 100%;
+        height: 40%;
+    }
+
+    .content-image .buttons-image{
+        width: 100%;
+        height: 60%;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .content-image .img img{
+        width: 80px;
+        height: 80px;
+    }
+
+    /* START  content-update-basic */
+
+    .content-update-basic .content-body{
+        min-width: 95%;
+    }
+
+    .content-update-basic .content-body .content-title p{
+        padding: 10px 20px;
+        font-size: 17px;
+    }
+
+    .content-update-basic .content-body .content-form form .content-input .span-error{
+        bottom: -10px;
+        left: 100px;
+        font-size: 17px;
+        font-weight: 300;
+        color: var(--color-danger);
+    }
+
+    .content-update-basic .content-body .content-form form .content-input .span-success{
+        position: absolute;
+        bottom: 30px;
+        right: 5px;
+        font-size: 30px;
+        font-weight: 300;
+        color: var(--color-success);
+    }
+
+    /* END  content-update-basic */
+
+    /* START  content-update-password */
+
+    .content-update-password .content-body{
+        min-width: 95%;
+    }
+
+    .content-update-password .content-body .content-title p{
+        padding: 10px 20px;
+        font-size: 17px;
+    }
+
+    .content-update-password .content-body .content-form form .content-input .span-error{
+        bottom: -10px;
+        left: 48px;
+        font-size: 13px;    
+        font-weight: 300;
+        color: var(--color-danger);
+    }
+
+    .content-update-password .content-body .content-form form .content-input .span-success{
+        position: absolute;
+        bottom: 30px;
+        right: 5px;
+        font-size: 30px;
+        font-weight: 300;
+        color: var(--color-success);
+    }
+
+}
+
+@media screen and (max-width: 400px){
+
+    .content-text .information p .label{
+        font-size: 13px;
+        padding: 2px 6px;
+    }
+    
+    .content-text .information p span{
+        font-size: 17px;
+        font-weight: 800;
+    }
+
+    /* START  content-update-basic */
+
+    .content-update-basic .content-body .content-title p{
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+
+    .content-update-basic .content-body .content-form form .content-input .span-error{
+        bottom: -10px;
+        left: 50px;
+        font-size: 15px;
+    }
+
+    .content-update-basic .content-body .content-form form .content-input .span-success{
+        bottom: 25px;
+        right: 2px;
+    }
+
+    .content-update-basic .content-body .content-form form input,
+    .content-update-basic .content-body .content-form form textarea{
+        width: 90%;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    /* END  content-update-basic */
+
+    /* START  content-update-password */
+    
+    .content-update-password .content-body .content-form form .content-input .span-error{
+        font-size: 10px;
+        font-weight: 300;
+    }
+
+    .content-update-password .content-body .content-form form .content-input .span-success{
+        position: absolute;
+        bottom: 30px;
+        right: 5px;
+        font-size: 30px;
+        font-weight: 300;
+        color: var(--color-success);
+    }
+
+    /* END  content-update-password */
+
+}

@@ -1,0 +1,544 @@
+.content{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 150;
+}
+
+.content-body{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4); 
+    border-radius: 20px;
+}
+
+
+/* START MORE */
+
+.content-more{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-more p{
+    padding: 2px 7px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* END MORE */
+
+/* START COMPONENTES */
+
+.popup-image,
+.profileFriend{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 150;
+}
+
+
+/* END COMPONENTES */
+
+/* START CONTENT-HEAD */
+
+.content-head{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-head .image-profile{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-head .image-profile img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.content-head .userName{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-head .userName p{
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.content .options{
+    position: relative;
+    width: 20%;
+    height: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .options i{
+    font-size: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+    z-index: 1;
+}
+
+.content .options i:hover{
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.content .options ul{
+    position: absolute;
+    display: none;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+        
+    border-radius: 10px;
+    bottom: -40px;
+    left: -80px;
+    width: 150px;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+.content .options ul.show{
+    display: inline-block;
+}
+
+.content .options ul li{
+    width: 100%;
+    height: 100%;
+    margin: 10px 0;
+}
+
+.content .options ul li:hover
+{
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+}
+
+.content .options ul li:hover a{
+    color: white;
+}
+
+.content .options ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+    padding-left: 20px;
+    width: 100%;
+    display: block;
+}
+
+
+/* END CONTENT-HEAD */
+
+/* START CONTENT-MESSAGES */
+
+.content-messages{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 10px;
+}
+
+.content-messages .bubble-container{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+}
+
+.content-messages .bubble-container.left{
+    width: 50%;
+    margin-right: auto;
+    /* align-items: flex-start; */
+}
+
+.content-messages .bubble-container.right{
+    width: 50%;
+    margin-left: auto;
+    align-items: flex-end;
+}
+
+.content-messages .bubble-container .bubble .bubble-text{
+    color: white;
+}
+
+.content-messages .bubble-container.right .bubble .bubble-text > div{ /* Le decimos que queremos el primer hijo directo */
+    position: relative;
+    background-color: #005c4b;
+}
+
+.content-messages .bubble-container.left .bubble .bubble-text > div{
+    position: relative;
+    background-color: #202c33;
+    display: inline-flex;
+}
+
+.content-messages .bubble-container .bubble .bubble-text > div{
+    padding: 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.content-messages .bubble-container .bubble .bubble-text .bubble-info{
+    font-size: 12px;
+    color: rgb(255, 255, 255, 0.7);
+    padding: 0 10px;
+    text-align: right;
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    box-sizing: border-box; /* Aunque le agreguemos un padding, que no se ande desbordando nuestro Elemento */
+}
+
+
+/* EL vamos agregar al primer mensaje una pequeña pestañita */
+
+.content-messages .bubble-container.left .bubble:nth-child(1) .bubble-text > div::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: solid 5px #202c33;
+    border-top: solid 5px #202c33;
+    border-left: solid 5px transparent;
+    border-bottom: solid 5px transparent; 
+    left: -9px;
+    top: 0;
+}
+
+
+/* END CONTENT-MESSAGES */
+
+/* START CONTENT-WRITE */
+
+.content-write{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.content-write input{
+    width: 400px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.500);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+}
+
+.content-write input::placeholder{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.content-write input:focus{
+    font-size: 15px;
+    font-weight: 700;
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.300);
+    color: black;
+}
+
+.content-write i{
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px 0px;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+}
+
+.content-write i:hover{
+    background: black;
+    color: white;
+}
+
+
+/* END CONTENT-WRITE */
+
+
+/* START CONTETN-NO-MESSAGE */
+
+.containt-not-messages{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: red; */
+}
+
+.containt-not-messages p{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+/* END CONTETN-NO-MESSAGE */
+
+@media screen and (max-width:1350px){
+
+    .content-body{
+        min-width: 780px;
+    }
+
+}
+
+@media screen and (max-width:850px){
+    .content-body{
+        min-width: 95%;
+    }
+}
+
+@media screen and (max-width:700px){
+
+    /* START CONTENT-HEAD */
+
+    .content-head .image-profile img{
+        width: 55px;
+        height: 55px;
+    }
+
+    .content-head .userName p{
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    .content .options{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+    }
+
+    .content .options i{
+        font-size: 40px;
+    }
+
+    .content .options i:hover{
+        padding: 5px;
+    }
+
+    /* END CONTENT-HEAD */
+
+    
+    /* START CONTENT-MESSAGES */
+    
+    .content-messages .bubble-container .bubble .bubble-text{
+        color: white;
+        font-size: 14px;
+    }
+
+    .content-messages .bubble-container .bubble .bubble-text > div{
+        padding: 5px;
+    }
+    
+    .content-messages .bubble-container .bubble .bubble-text .bubble-info{
+        font-size: 12px;
+        padding: 0 2px;
+        width: 60px;
+        min-width: 60px;
+        max-width: 60px;
+    }
+    
+    /* END CONTENT-MESSAGES */
+}
+
+@media screen and (max-width:600px){
+
+    /* START CONTENT-HEAD */
+
+    .content-head .image-profile img{
+        width: 45px;
+        height: 45px;
+    }
+
+    .content-head .userName p{
+        font-size: 22px;
+    }
+
+    .content .options i{
+        font-size: 30px;
+    }
+    
+    /* END CONTENT-HEAD */
+
+    /* START CONTENT-MESSAGES */
+
+    .content-messages .bubble-container .bubble .bubble-text{
+        color: white;
+        font-size: 12px;
+    }
+    
+    .content-messages .bubble-container .bubble .bubble-text .bubble-info{
+        font-size: 10px;
+        width: 50px;
+        min-width: 50px;
+        max-width: 50px;
+    }
+        
+    /* END CONTENT-MESSAGES */
+
+}
+
+@media screen and (max-width:500px){
+
+    /* START CONTENT-HEAD */
+
+    .content-head .image-profile img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .content-head .userName p{
+        font-size: 18px;
+    }
+
+    .content .options i{
+        font-size: 25px;
+    }
+    
+    /* END CONTENT-HEAD */
+
+    /* START CONTENT-MESSAGES */
+
+    .content-messages .bubble-container .bubble .bubble-text{
+        font-size: 10px;
+    }
+    
+    .content-messages .bubble-container .bubble .bubble-text .bubble-info{
+        font-size: 8px;
+        width: 40px;
+        min-width: 40px;
+        max-width: 40px;
+    }
+        
+    /* END CONTENT-MESSAGES */
+
+    /* START CONTENT-WRITE */
+
+    .content-write input{
+        width: 300px;
+        height: 40px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .content-write input::placeholder{
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .content-write input:focus{
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .content-write i{
+        font-size: 25px;
+        padding: 7px;
+    }
+
+    /* END CONTENT-WRITE */
+
+}
+
+
+@media screen and (max-width:400px){
+
+    /* START CONTENT-HEAD */
+
+    .content-head .image-profile img{
+        width: 35px;
+        height: 35px;
+    }
+
+    .content-head .userName p{
+        font-size: 15px;
+    }
+
+    /* END CONTENT-HEAD */
+    
+    /* START CONTENT-MESSAGES */
+
+    .content-messages .bubble-container .bubble .bubble-text{
+        font-size: 9px;
+    }
+    
+    .content-messages .bubble-container .bubble .bubble-text .bubble-info{
+        font-size: 9px;
+        width: 40px;
+        min-width: 40px;
+        max-width: 40px;
+    }
+
+    /* END CONTENT-MESSAGES */
+
+    /* START CONTENT-WRITE */
+
+    .content-write input{
+        width: 250px;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .content-write input::placeholder{
+        font-size: 10px;
+    }
+
+    .content-write input:focus{
+        font-size: 10px;
+    }
+
+    /* END CONTENT-WRITE */
+
+}

@@ -1,0 +1,46 @@
+<section>
+
+    <div class="content">
+
+        <div class="content-img">
+            <img src="../../../../../assets/images/forgot-password.jpg" alt="">
+        </div>
+
+        <div class="content-forgot-password">
+
+            <div class="content-title">
+                <p> RESET PASSWORD </p>
+            </div>
+
+            <div class="content-form">
+
+                <form action=""(ngSubmit)="sendData()">
+
+                    <div class="content-logo">
+                        <i class='bx bx-envelope' ></i>
+                    </div>
+
+                    <div class="content-input form-useName">
+                        <input type="text" class="input" placeholder="Enter Your Email" minlength="3">
+                        <span  class="span-error" *ngIf="!isEmail && emailFocus"> ¡ The User Name is required !</span>
+                        <span  class="span-success" *ngIf="isEmail && emailFocus"> <i class='bx bx-check-double'> </i> </span>
+
+                    </div>
+
+                    <div class="form-button">
+                        <button type="submit" class="btn"> SEND </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="content-back">
+                <button (click)="back()" (mouseover)="changeColoImage()" (mouseout)="changeColoImage()"> BACK </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

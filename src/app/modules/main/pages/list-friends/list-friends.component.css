@@ -1,0 +1,423 @@
+.content{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 150;
+}
+
+/* START COMPONENTES */
+
+.popup-image,
+.profileFriend{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 150;
+}
+
+.profileFriend{
+    z-index: 10;
+}
+
+/* END COMPONENTES */
+
+
+.content-body{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4); 
+    border-radius: 20px;
+
+}
+
+.content-search{
+    width: 100%;
+    height: 60px;
+    border-radius: 40px;
+    /* background-color: var(--color-gray-1); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-input{
+    position: relative;
+    width: 60%;
+    height: 45px;
+}
+
+.content-input input{
+    width: 100%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.500);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.content-search input::placeholder{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.content-search input:focus{
+    font-size: 25px;
+    font-weight: 700;
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.300);
+    color: black;
+}
+
+.content-search input:focus ~ i{
+    color: black;
+}
+
+.content-input i{
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 35px;
+    color: white;
+}
+
+.content-input i:hover{
+    cursor: pointer;
+}
+
+/* START LIST */
+
+.content-listFriends{
+    width: 100%;
+}
+
+.content-listFriends .friend{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 5px;
+    border-top: 1px solid var(--color-gray-1);
+    border-bottom: 1px solid var(--color-gray-1);
+    transition: all 0.5s ease-in;
+
+}
+
+.content-listFriends .friend:hover{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.500);
+    border: 1px solid white !important;
+    border-radius: 40px;
+}
+
+.content-listFriends .friend:hover.friend .content-userName p{
+    color: white;
+}
+.content-listFriends .friend:hover.friend .content-image img{
+    border: 1px solid white;
+}
+
+.content-listFriends .friend:hover.friend .content-button button{
+    border: 1px solid white;
+    color: white;
+}
+
+.content-listFriends .friend:hover.friend .content-button button:hover{
+    color: black;
+    background: white;
+    font-size: 22px;
+    font-weight: 700;
+
+    box-shadow: -12px 13px 40px -10px rgba(255, 255, 255, 0.88);
+    -webkit-box-shadow: -12px 13px 40px -10px rgba(255, 255, 255, 0.88);
+    -moz-box-shadow: -12px 13px 40px -10px rgba(255, 255, 255, 0.88);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+.content-listFriends .friend:nth-child(1){
+    margin-top: 10px;
+}
+
+.content-listFriends .friend .content-image{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 20%;
+    height: 100%;
+}
+
+.content-listFriends .friend .content-image img{
+    cursor: pointer;
+    width: 76px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.content-listFriends .friend .content-userName{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 50%;
+    height: 100%;    
+    /* background: gray; */
+}
+
+.content-listFriends .friend .content-userName p{
+    margin-left: 30px;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.content-listFriends .friend .content-button{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 30%;
+    height: 100%;    
+    /* background: black; */
+}
+
+.content-listFriends .friend .content-button button{
+    width: 90%;
+    height: 50%;
+    color: white;
+    background: black;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+
+    box-shadow: -12px 13px 40px -10px rgba(0, 0, 0, 0.88);
+    -webkit-box-shadow: -12px 13px 40px -10px rgba(0, 0, 0, 0.88);
+    -moz-box-shadow: -12px 13px 40px -10px rgba(0, 0, 0, 0.88);
+}
+
+.content-listFriends .friend .content-button p{
+    color: white;
+    background: black;
+    padding: 7px 15px;
+    border-radius: 25px;
+}
+
+.containt-not-friends{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: red; */
+}
+
+.containt-not-friends p{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+/* END LIST */
+
+@media screen and (max-width: 1400px){
+
+    .content-body{
+        min-width: 700px;
+    }
+    
+}
+
+@media screen and (max-width: 870px){
+
+    .content-body{
+        min-width: 530px;
+    }
+
+    .content-search{
+        margin-left: 20px;
+        justify-content: start;
+    }
+
+    .content-listFriends .friend{
+        height: 70px;
+    }    
+
+    .content-listFriends .friend .content-image{
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .content-listFriends .friend .content-userName p{
+        margin-left: 20px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    
+    .content-listFriends .friend .content-button button{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .content-listFriends .friend:hover.friend .content-button button:hover{
+        font-size: 17px;
+        font-weight: 500;    
+    }
+    
+    .containt-not-friends p{
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 550px){
+    
+    .content-body{
+        min-width: 100%;
+        width: 100%;
+        border-radius: 0px;
+    }
+
+    .content-search{
+        margin-left: 10px;
+        justify-content: start;
+    }
+
+    .content-input{
+        width: 80%;
+        height: 40px;
+    }
+
+    .content-input input{
+        font-size: 17px;
+        font-weight: 500;
+    }
+    
+    .content-search input::placeholder{
+        font-size: 15px;
+    }
+    
+    .content-search input:focus{
+        font-size: 20px;
+        font-weight: 500;
+    }
+        
+    .content-input i{
+        top: 5px;
+        right: 10px;
+        font-size: 30px;
+    }
+
+
+    .content-listFriends .friend{
+        height: 60px;
+    }  
+
+    .content-listFriends .friend .content-image img{
+        width: 60px;
+        height: 60px;
+    }
+
+    .content-listFriends .friend .content-userName p{
+        margin-left: 5px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+    
+    .content-listFriends .friend .content-button button{
+        font-size: 13px;
+    }
+
+    .content-listFriends .friend:hover.friend .content-button button:hover{
+        font-size: 15px;
+    }
+
+    .content-listFriends .friend .content-button p{
+        font-size: 15px;
+        padding: 5px 12px;
+    }
+    
+
+    .containt-not-friends p{
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 450px){
+
+    .content-search{
+        margin-left: 5px;
+    }
+
+    .content-input{
+        width: 85%;
+    }
+
+    .content-input input{
+        font-size: 15px;
+    }
+    
+    .content-search input::placeholder{
+        font-size: 13px;
+    }
+    
+    .content-search input:focus{
+        font-size: 15px;
+    }
+        
+    .content-input i{
+        top: 10px;
+        right: 5px;
+        font-size: 25px;
+    }
+
+    .content-listFriends .friend{
+        height: 55px;
+    }  
+
+    .content-listFriends .friend .content-image img{
+        width: 55px;
+        height: 55px;
+    }
+
+    .content-listFriends .friend .content-userName p{
+        margin-left: 5px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    
+    .content-listFriends .friend .content-button button{
+        font-size: 10px;
+    }
+
+    .content-listFriends .friend:hover.friend .content-button button:hover{
+        font-size: 13px;
+    }
+
+
+
+
+    .containt-not-friends p{
+        font-size: 25px;
+        font-weight: 600;
+    }
+}

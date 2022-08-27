@@ -1,0 +1,140 @@
+<!-- VAMOS EN LE FUNCIONAMIENTO DE LOS BOTONES -->
+
+<div class="content-myProfile">
+
+    <div class="content-body">
+
+        <div class="content-image">
+
+            <div class="img">
+                <img [src]="user.urlImage | notImage" alt="" (click)="showPopUpImage()">
+            </div>
+
+            <div class="buttons-image">
+                <button (click)="updateProfileImage()"> Update Profile Image</button>
+                <button (click)="updateWallpaperImage()"> Update Wallpaper Image</button>
+            </div>
+
+        </div>
+        
+        <div class="content-text">
+
+            <div class="information">
+                <p> <span class="label"> Fullname :</span> <span> {{user.fullName}} </span></p>
+                <p> <span class="label"> UserName :</span> <span> {{user.userName}} </span></p>
+                <p> <span class="label"> About Me :</span> <span> {{user.aboutMe}} </span> </p>
+                <p> <span class="label"> Status :</span> <span> {{user.status}} </span></p>    
+            </div>
+
+            <div class="buttons-text">
+                <button (click)="showUpdateBasicInformation()"> Update Basic Information</button>
+                <button (click)="showUpdatePassword()"> Update Password </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-pop-up-image *ngIf="canShowPopUpImageFriend" class="popup-image" [urlImage]="user.urlImage" (closePopUp)="showPopUpImage()"></app-pop-up-image>
+
+    <div class="content-update-basic" *ngIf="canShowFormUpdateBasic === true">
+
+        <div class="content-body">
+
+            <div class="content-title">
+                <p>
+                    update data basic
+                </p>
+            </div>
+
+            <div class="content-form">
+
+                <form action="" [formGroup]="formUpdateBasic">
+
+                    <div class="content-input form-fullName">
+                        <input type="text" class="input" placeholder="Enter your fullName" minlength="3" title="you full name" formControlName="fullName">
+                        <span  class="span-error" *ngIf="isFieldInvalid('fullName')"> ¡ The Full Name is Required !</span>
+                        <span  class="span-success" *ngIf="isFieldInvalid('fullName') === null"> <i class='bx bx-check-double'> </i> </span>
+                    </div>
+
+                    <div class="content-input form-userName">
+                        <input type="text" class="input" placeholder="Enter your User Name" minlength="3" formControlName="userName">
+                        <span  class="span-error" *ngIf="isFieldInvalid('userName')"> ¡ The UserName is Required !</span>
+                        <span  class="span-success" *ngIf="isFieldInvalid('userName') === null"> <i class='bx bx-check-double'> </i> </span>
+                    </div>
+
+                    <div class="content-input form-email">
+                        <input type="text" class="input" placeholder="Enter your User Name" minlength="3" formControlName="email">
+                        <span  class="span-error" *ngIf="isFieldInvalid('email')"> ¡ The email is Required !</span>
+                        <span  class="span-success" *ngIf="isFieldInvalid('email') === null"> <i class='bx bx-check-double'> </i> </span>
+                    </div>
+                    
+                    <div class="content-input form-aboutMe">
+                        <textarea name="" id="" cols="30" rows="2" placeholder="Write a little about yourself" formControlName="aboutMe"></textarea>
+                    </div>
+
+                    <div class="content-input form-status">
+                        <input type="text" class="input" placeholder="Enter your status" formControlName="status">
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn" (click)="sendDataBasic()"> SEND </button>
+                        <button type="submit" class="btn" (click)="showUpdateBasicInformation()"> CLOSE </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="content-image-background">
+            <img [src]="user.urlImage" alt="">
+        </div>
+
+    </div>
+
+    <div class="content-update-password" *ngIf="canShowFormUpdatePassword" >
+
+        <div class="content-body">
+
+            <div class="content-title">
+                <p>
+                    UPDATE PASSWORD
+                </p>
+            </div>
+
+            <div class="content-form">
+
+                <form action="" [formGroup]="formUpdatePassword">
+
+                    <div class="content-input form-password">
+                        <input type="password" class="input" placeholder="Enter your New Password" minlength="6" title="Enter your password please" formControlName="password">
+                        <span  class="span-error" *ngIf="isFieldInvalid('password')"> ¡ The New Password is Required !</span>
+                        <span  class="span-success" *ngIf="isFieldInvalid('password') === null"> <i class='bx bx-check-double'> </i> </span>
+                    </div>
+
+                    <div class="content-input form-password">
+                        <input type="password" class="input" placeholder="Repeat your password" title="Enter your password again" minlength="6" formControlName="confirmationPassword">
+                        <span  class="span-error" *ngIf="isFieldInvalid('confirmationPassword')"> ¡ The password has to be the same as the previous One !</span>
+                        <span  class="span-success" *ngIf="isFieldInvalid('confirmationPassword') === null"> <i class='bx bx-check-double'> </i> </span>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn" (click)="sendDataPassword()"> SEND </button>
+                        <button type="submit" class="btn" (click)="showUpdatePassword()"> CLOSE </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="content-image-background">
+            <img [src]="user.urlImage" alt="">
+        </div>    
+            
+    </div>
+
+</div>

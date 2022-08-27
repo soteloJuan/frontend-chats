@@ -1,0 +1,56 @@
+
+<div class="content">
+
+    <div class="content-body">
+
+        <div class="content-search">
+
+            <div class="content-input">
+                <input  type="text" placeholder="Search By UserName..." (keydown.enter)="searchMyFriend(inputSearch.value)" #inputSearch>
+                <i class='bx bx-search-alt' (click)="searchMyFriend(inputSearch.value)" *ngIf="isFriends"></i>
+                <i class='bx bx-x' *ngIf="!isFriends" (click)="getFriendsId()"></i>
+            </div>
+
+        </div>
+
+        <div class="content-listFriends">
+
+            <div class="friend" *ngFor="let friend of listFriends">
+
+                <div class="content-image" (click)="showPopUpImage(friend.urlImage)">
+                    <img [src]="friend.urlImage | notImage" alt="">
+                </div>
+
+                <div class="content-userName" (click)="showProfileFriend(friend.idUser)">
+                    <p>{{friend.userName}}</p>
+                </div>
+
+                <div class="content-button">
+
+                    <button (click)="addNewFriend(friend.idUser)" *ngIf="!isFriends">
+                        Add My Friend
+                    </button>
+                    
+                    <p *ngIf="isFriends" (click)="showProfileFriend(friend.idUser)">
+                        My Friend
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="containt-not-friends" *ngIf="listFriends.length === 0">
+                <p>
+                    You don't have any friends added
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-pop-up-image *ngIf="canShowPopUpImage" class="popup-image" [urlImage]="urlImageSendPopUpImage" (closePopUp)="showPopUpImage()"></app-pop-up-image>
+
+    <app-profile-friend *ngIf="canShowPopUpProfileFriend" class="profileFriend" [idFriend]="idFriendSendPopUpProfile" [isFriend]="isFriends" (closePopUp)="showProfileFriend()" (removeOneFriendFromList)="getFriendsId()"></app-profile-friend>
+
+</div>

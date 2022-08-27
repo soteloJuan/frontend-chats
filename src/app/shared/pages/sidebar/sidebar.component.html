@@ -1,0 +1,53 @@
+
+<div class="l-navbar" id="navbar">
+    <nav class="nav">
+        <div>
+
+            <div class="nav__brand">
+
+                <div class="nav_img-logo">
+                    <img src="./assets/images/favicon.png" alt="">
+                </div>
+
+                <a href="chat" class="nav__logo"> ChaTS </a>
+
+            </div>
+
+            <div class="nav__list">
+
+
+                <ul>
+
+                    <li>
+                        <a href="#" [routerLink]="['/chat/myProfile/']" class="nav__link" routerLinkActive="active">
+                            <i class='bx bxs-user'></i>
+                            <span class="nav__name">My Profile</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#" [routerLink]="['/chat/listChats/']" class="nav__link"  routerLinkActive="active">
+                            <i class='bx bxs-chat'></i>
+                            <span class="nav__name">Conversations</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" [routerLink]="['/chat/friends/']" class="nav__link"  routerLinkActive="active">  
+                            <i class='bx bxs-group'></i>
+                            <span class="nav__name">My Friends</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <a class="nav__link"  (click)="clickLogout()">
+            <i class='bx bx-log-out'></i>
+            <span class="nav__name"> Logout </span>
+        </a>
+    </nav>
+</div>
+

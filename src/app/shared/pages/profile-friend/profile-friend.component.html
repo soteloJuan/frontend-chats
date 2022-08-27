@@ -1,0 +1,31 @@
+
+<div class="content-profileFriend" >
+
+    <div class="content-body" >
+
+        <div class="content-image">
+            <img [src]="user.urlImage | notImage" alt="" (click)="showPopUpImage()">
+        </div>
+
+        <div class="content-text">
+            <p> <span class="label"> Fullname :</span> <span>{{ user.fullName }} </span></p>
+            <p> <span class="label"> UserName :</span> <span> {{user.userName}} </span></p>
+            <p> <span class="label"> About Me :</span> <span> {{user.aboutMe}} </span> </p>
+            <p> <span class="label"> Status :</span> <span> {{user.status}} </span></p>
+        </div>
+
+        <div class="content-buttons">
+            <button *ngIf="isFriend" (click)="removeFriend(user.idUser)"> REMOVE </button>
+            <button *ngIf="canShowButtonSendMessage" (click)="sendMessage()"> SEND MESSAGE </button>
+            <button (click)="closePopUpProfile()"> CLOSE </button>
+        </div>
+
+    </div>
+
+    <div class="content-background">
+        <img [src]="user.urlImage | notImage" alt="" id="background-image">
+    </div>
+
+    <app-pop-up-image *ngIf="canShowPopUpImageFriend" class="popup-image" [urlImage]="user.urlImage" (closePopUp)="showPopUpImage()"></app-pop-up-image>
+
+</div>

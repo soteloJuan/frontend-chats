@@ -1,0 +1,409 @@
+section{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-black);
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* START content-image */
+
+.content .content-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.content .content-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0%);
+    transition: all 0.5 ease-in-out;
+}
+.content .content-img img.gray{
+    filter: grayscale(100%);
+}
+
+/* END content-image */
+
+.content-login{
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-login .content-title{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-login .content-title p{
+    color: white;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.content-login .content-form{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.content-login .content-form form{
+
+    position: relative;
+    width:30%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    border-left: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4); 
+    border-radius: 20px;
+
+    z-index: 10;
+
+}
+
+.content-login .content-form form .content-logo{
+    width: 100%;
+    /* height: 100%; */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    top: -45px;
+    left: 0;
+}
+
+.content-login .content-form form .content-logo i{
+    font-size: 100px;
+    color: white;
+    border-radius: 50%;
+    font-weight: 100;
+}
+
+
+.content-login .content-form form .content-input{
+    position: relative;
+    width: 100%;
+    height: 15%;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-login .content-form form .content-input input{
+    width: 60%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.500);
+    border: none;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+}
+
+.content-login .content-form form .content-input input::placeholder{
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.content-login .content-form form .content-input input:focus{
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.300);
+    color: black;
+}
+
+.content-login .content-form form .content-forgotPassword{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-login .content-form form .content-forgotPassword p{
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--color-white-border);
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.content-login .content-form form .content-forgotPassword p:hover{
+    color: var(--color-white-1);
+}
+
+.content-form form .form-button{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+}
+
+
+.content-form form .form-button button{
+    width: 40%;
+    height: 100%;
+    background: none;
+    border: 1px solid var(--color-white-border);
+    border-radius: 20px;
+    color: var(--color-white-1);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.content-form form .form-button button:hover,
+.content-back button:hover{
+    background: var(--color-white-1);
+    color: var(--color-black);
+    font-size: 22px;
+    font-weight: 700;
+    -webkit-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    -moz-box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+    box-shadow: -12px 13px 40px -10px rgba(255,255,255,0.88);
+}
+
+.content-form form .content-input .span-error{
+    position: absolute;
+    bottom: -20px;
+    left: 150px;
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--color-danger);
+}
+
+.content-form form .content-input .span-success{
+    position: absolute;
+    bottom: 25px;
+    right: 50px;
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--color-success);
+}
+
+.content-back{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+
+}
+
+.content-back button{
+    width: 15%;
+    height: 100%;
+    background: none;
+    border: 1px solid var(--color-white-border);
+    border-radius: 20px;
+    color: var(--color-white-1);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.content-back button:hover.content .content-img img{
+    filter: grayscale(100%);
+}
+
+@media screen and (max-width:1450px){
+
+    .content-login .content-form form{
+        min-width: 450px;
+        /* width:30%; */
+        height: 70%;
+    }
+
+    .content-back button{
+        width: 185px;
+    }
+}
+
+@media screen and (max-width:500px){
+
+    .content-login .content-title p{
+        font-size: 50px;
+    }
+
+    .content-login .content-form form{
+        min-width: 420px;
+        height: 65%;
+    }
+
+    .content-login .content-form form .content-logo{
+        top: -45px;
+        left: 0;
+    }
+    
+    .content-login .content-form form .content-logo i{
+        font-size: 80px;
+    }
+
+    .content-form form .content-input .span-error{
+        left: 100px;
+    }
+    
+    .content-form form .content-input .span-success{
+        bottom: 10px;
+        right: 35px;
+    }
+
+}
+
+@media screen and (max-width:450px){
+
+    .content-login .content-title p{
+        font-size: 40px;
+    }
+
+    .content-login .content-form form{
+        min-width: 360px;
+        height: 60%;
+    }
+
+    .content-login .content-form form .content-logo{
+        top: -35px;
+        left: 0;
+    }
+    
+    .content-login .content-form form .content-logo i{
+        font-size: 75px;
+    }
+
+    .content-login .content-form form .content-input input{
+        width: 70%;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .content-login .content-form form .content-input input::placeholder{
+        font-size: 13px;
+    }
+    
+    .content-form form .form-button button{
+        width: 60%;
+        height: 100%;
+        font-size: 18px;
+    }
+    
+    .content-form form .form-button button:hover{
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .content-back button{
+        width: 55%;
+        font-size: 18px;
+    }
+
+    .content-form form .content-input .span-error{
+        left: 80px;
+    }
+    
+    .content-form form .content-input .span-success{
+        bottom: 5px;
+        right: 15px;
+    }
+
+
+}
+
+@media screen and (max-width:400px){
+
+    .content-login{
+        width: 100%;
+        height: 90%;
+    }
+
+    .content-login .content-form form{
+        min-width: 300px;
+        height: 55%;
+    }
+
+    .content-login .content-form form .content-logo{
+        top: -40px;
+        left: 0;
+    }
+    
+    .content-login .content-form form .content-logo i{
+        font-size: 70px;
+    }
+
+    .content-login .content-form form .content-input input{
+        width: 80%;
+        height: 35px;
+    }
+
+
+    .content-login .content-form form .content-forgotPassword{
+        height: 15px;
+    }
+    
+    .content-login .content-form form .content-forgotPassword p{
+        font-size: 15px;
+    }
+    
+    .content-form form .form-button button{
+        width: 60%;
+        height: 80%;
+        font-size: 16px;
+    }
+    
+    .content-form form .form-button button:hover{
+        font-size: 18px;
+    }
+
+    .content-back button{
+        width: 65%;
+        font-size: 16px;
+    }
+
+    .content-form form .content-input .span-error{
+        left: 60px;
+        font-size: 14px;
+    }
+    
+    .content-form form .content-input .span-success{
+        bottom: 5px;
+        right: 5px;
+        font-size: 25px;
+    }
+
+}

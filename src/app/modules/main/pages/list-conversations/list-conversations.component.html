@@ -1,0 +1,57 @@
+<div class="content">
+
+    <div class="content-body">
+
+        <div class="content-search">
+
+            <div class="content-input">
+
+                <input  type="text" placeholder="Enter the UserName..." (keydown.enter)="searchMyFriend(inputSearch.value)" #inputSearch>
+
+                <i class='bx bx-search-alt' (click)="searchMyFriend(inputSearch.value)" *ngIf="!isSearching"></i>
+                <i class='bx bx-x' *ngIf="isSearching" (click)="closeSearchMyFriend()"></i>
+
+            </div>
+
+        </div>
+
+        <div class="content-listFriends">
+
+            <div class="friend" *ngFor="let conversation of arrayConversations">
+
+                <div class="content-image">
+                    <img [src]="conversation.urlImage" (click)="showPopUpImage(conversation.urlImage)">
+                </div>
+
+                <div class="content-text" (click)="showConversation(conversation.idConversation, conversation.idUser)">
+
+                    <div class="content-username">
+                        <p> {{conversation.userName}}</p>
+
+                        <p *ngIf="dateNow > conversation.messageDays" class="time"> {{conversation.messageDays}} </p>
+                        <p *ngIf="dateNow === conversation.messageDays" class="time"> {{conversation.messageHour}}  </p>
+
+                    </div>
+
+                    <div class="content-lastMessage">
+                        <p *ngIf=" conversation.userWhoCreatedMessage === user.idUser"> <span> Me:  </span> {{conversation.bodyMessage}} </p>
+                        <p *ngIf=" conversation.userWhoCreatedMessage !== user.idUser"> <span> Friend:  </span> {{conversation.bodyMessage}} </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="containt-not-friends" *ngIf="arrayConversations.length === 0">
+                <p>
+                    You don't have any Message
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-pop-up-image *ngIf="canShowPopUpImage" class="popup-image" [urlImage]="urlImageSendPopUpImage" (closePopUp)="showPopUpImage()"></app-pop-up-image>
+
+</div>

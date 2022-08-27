@@ -1,0 +1,59 @@
+<section>
+
+    <div class="content">
+
+        <div class="content-img">
+            <img src="../../../../../assets/images/img-login.jpg" alt="">
+        </div>
+
+        <div class="content-login">
+
+            <div class="content-title">
+                <p>LOGIN</p>
+            </div>
+
+            <div class="content-form">
+
+                <form action="" [formGroup]="formUser" (ngSubmit)="sendData()" >
+
+                    <div class="content-logo">
+                        <i class='bx bxs-user-circle'></i>
+                    </div>
+
+                    <div class="content-input form-useName">
+                        <input type="text" class="input" placeholder="Enter Your User Name" minlength="3" formControlName="userName">
+                        <span  class="span-error" *ngIf="isFieldInvalid('userName')"> ¡ The User Name is required !</span>
+                        <span  class="span-success" *ngIf="isFieldInvalid('userName') === null"> <i class='bx bx-check-double'> </i> </span>
+                    </div>
+                        
+                    <div class="content-input form-password">
+                        <input type="password" class="input" placeholder="Enter Your Password" formControlName="password">
+                        <span  class="span-error" *ngIf="isFieldInvalid('password')"> ¡ The password is Required !</span>
+                        <span  class="span-success" *ngIf="isFieldInvalid('password') === null"> <i class='bx bx-check-double'> </i> </span>
+
+                    </div>
+
+                    <div class="content-forgotPassword">
+                        <p (click)="forgotMyPassword()">
+                            I Forgot My Password
+                        </p>
+                    </div>
+
+                    <div class="form-button">
+                        <button type="submit" class="btn"> SEND </button>
+                    </div>
+    
+                </form>
+
+            </div>
+
+            <div class="content-back">
+                <button (click)="back()" (mouseover)="changeColoImage()" (mouseout)="changeColoImage()"> BACK </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
